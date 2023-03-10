@@ -1,0 +1,3 @@
+# r4pi.org repo config
+deb http://debs.r4pi.org/ bullseye main
+
