@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PKG_VERSION="0.3.0"
+PKG_VERSION="0.4.0"
 PKG_ITERATION=1
 
 if [[ ! -d /tmp/output/raspbian-bullseye ]]; then
