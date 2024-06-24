@@ -3,8 +3,12 @@
 PKG_VERSION="0.4.0"
 PKG_ITERATION=1
 
-if [[ ! -d /tmp/output/raspbian-bullseye ]]; then
-  mkdir -p /tmp/output/raspbian-bullseye
+# Generate the output directory from the system
+source /etc/os-release
+OUTPUT_DIR="${NAME}-${VERSION_CODENAME}"
+
+if [[ ! -d "${OUTPUT_DIR}" ]]; then
+  mkdir -p "${OUTPUT_DIR}"
 fi
 
 for VERSION in ${PKG_VERSION} 0.0.1
@@ -26,7 +30,7 @@ fpm \
   --maintainer "r4pi.org https://r4pi.org" \
   --license "MIT" \
   -a all \
-  -p /tmp/output/raspbian-bullseye/ \
+  -p /tmp/output/${OUTPUT_DIR}/ \
   ./src/=/
 
 done
